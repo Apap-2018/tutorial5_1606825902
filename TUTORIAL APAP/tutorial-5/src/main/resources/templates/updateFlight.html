@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Update Flight</title>
+	
+	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment :: navbar(nama='Update Flight')"></nav>
+	<br>
+	<br>
+	<h2> Hello!</h2>
+	
+	<h3> Update pilot</h3>
+	<form th:action="@{/flight/update}" th:object="${updateFl}" method ="POST">
+		<h3 th:text="'Old Flight ID : '+${flight.id}"></h3>
+		New ID:<br>
+		<input type="text" name="id" th:value="${flight.id}" readonly/>
+		<br>
+		<h3 th:text="'Old Time : '+${flight.time}"></h3>
+		New Name:<br>
+		<input type="date" name="time"/>
+		<br>
+		<h3 th:text="'Old Destination : '+${flight.destination}"></h3>
+		New Destination: <br>
+		<input type="text" name="destination"/>
+		<br>
+		<h3 th:text="'Old Flight Number : '+${flight.flightNumber}"></h3>
+		New Number: <br>
+		<input type="text" name="flightNumber"/>
+		<br>
+		<h3 th:text="'Old Origin : '+${flight.origin}"></h3>
+		New Origin: <br>
+		<input type="text" name="origin"/>
+		<br>
+		<button type="submit"> Submit</button>
+	</form>
+</body>
+</html>

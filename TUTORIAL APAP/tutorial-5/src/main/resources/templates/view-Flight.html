@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Jadwal Penerbangan</title>
+		
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+	<body>
+		<nav th:replace="fragments/fragment :: navbar(nama='Jadwal Penerbangan')"></nav>
+		<div th:if="${!flights.isEmpty()}">
+		<table border="I">
+		<h3>Flight Schedule</h3>
+		<thead>
+			<tr>
+				<th style="text-align: center">Flight Number</th>
+				<th style="text-align: center">Origin</th>
+				<th style="text-align: center">Destination</th>
+				<th style="text-align: center">Time</th>
+				<th style="text-align: center"> Pilot Name</th>
+				<th style="text-align: center"> License Number</th>
+				<th></th>
+			</tr>
+			<tr th:each="flight : ${flights}">
+				<td style="text-align: center" th:text="${flight.flightNumber}" />
+				<td style="text-align: center" th:text="${flight.origin}" />
+				<td style="text-align: center" th:text="${flight.destination}" />
+				<td style="text-align: center" th:text="${flight.time}" />
+				<td style="text-align: center" th:text="${flight.pilot.name}" />
+				<td style="text-align: center" th:text="${flight.pilot.licenseNumber}" />
+	</body>
+</html>
